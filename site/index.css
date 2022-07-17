@@ -101,6 +101,12 @@ input, button, textarea, select {
   max-width: 80rem;
 }
 
+/* great hack to add margin to all children of an elment without adding too much space on the bottom */
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+  outline: 1px solid red;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
