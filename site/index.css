@@ -172,7 +172,7 @@ input, button, textarea, select {
 /* --------------------------- */
 
 .large-button {
-  display: grid;
+  display: inline-grid;
   position: relative;
   z-index: 1;
   place-items: center;
