@@ -102,6 +102,22 @@ input, button, textarea, select {
   max-width: 80rem;
 }
 
+.grid-container {
+  display: grid;
+  column-gap: var(--container-gap, 2rem);
+  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0px, 30rem)) minmax(2rem, 1fr);
+}
+
+.grid-container > *:first-child {
+  grid-column: 2;
+  outline: 1px solid red
+}
+
+.grid-container > *:last-child {
+  grid-column: 3;
+  outline: 1px solid yellow
+}
+
 /* great hack to add margin to all children of an elment without adding too much space on the bottom */
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
