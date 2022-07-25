@@ -119,6 +119,10 @@ input, button, textarea, select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .container {
   padding: 0 2em;
   margin-inline: auto;
@@ -126,23 +130,35 @@ input, button, textarea, select {
 }
 
 .grid-container {
+  text-align: center;
   display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container  * {
+  max-width: 45ch;
 }
 
 @media (min-width: 45rem) {
   .grid-container {
+  text-align: left;
   column-gap: var(--container-gap, 2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0px, 30rem)) minmax(2rem, 1fr)
+  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0px, 30rem)) minmax(2rem, 1fr);
   }
 
   .grid-container > *:first-child {
     grid-column: 2;
-    outline: 1px solid red
   }
   
   .grid-container > *:last-child {
     grid-column: 3;
-    outline: 1px solid yellow
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -217,6 +233,7 @@ input, button, textarea, select {
 /* --------------------------- */
 
 .large-button {
+  font-size: 2rem;
   display: inline-grid;
   position: relative;
   z-index: 1;
