@@ -7,7 +7,7 @@
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
-
+  
   /* font sizes */
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
@@ -17,31 +17,31 @@
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
-
+  
   /* font families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-seriff;
   --ff-sans-normal: "Barlow", sans-serif;
-
+  
 }
 
 @media (min-width: 35em) {
   :root {
-      /* font sizes */
-      --fs-800: 5rem;
-      --fs-700: 2.5rem;
-      --fs-600: 1.5rem;
-      --fs-400: 1rem;
+    /* font sizes */
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
   }
 }
 
 @media (min-width: 45em) {
   :root {
-      /* font sizes */
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
-  --fs-400: 1.125rem;
+    /* font sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
   }
 }
 
@@ -76,7 +76,7 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh; 
-
+  
   display: grid;
   grid-template-rows: min-content 1fr;
 }
@@ -144,11 +144,11 @@ input, button, textarea, select {
 
 @media (min-width: 45rem) {
   .grid-container {
-  text-align: left;
-  column-gap: var(--container-gap, 2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0px, 30rem)) minmax(2rem, 1fr);
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0px, 30rem)) minmax(2rem, 1fr);
   }
-
+  
   .grid-container > *:first-child {
     grid-column: 2;
   }
@@ -156,7 +156,7 @@ input, button, textarea, select {
   .grid-container > *:last-child {
     grid-column: 3;
   }
-
+  
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
     align-items: end;
@@ -264,12 +264,39 @@ input, button, textarea, select {
 }
 
 .primary-navigation {
-  gap: 8rem;
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  background: hsl(var(--clr-dark) / 0.95);
 }
+
+/* GREAT FALLBACK FOR BROWSERS THAT DON'T SUPPORT A FEATURE */
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl(var(--clr-white) / 0.05);
+  backdrop-filter: blur(1.5rem);
+  }
+}
+
+@media (max-width: 35rem) {
+  .primary-navigation {
+    --underline-gap: 0.5rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 20%;
+    list-style: none;
+    padding: min(20rem, 15vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+  }
+  
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+  }
+}
+
+
 
 .primary-navigation a {
   text-decoration: none;
@@ -279,6 +306,8 @@ input, button, textarea, select {
   font-weight: 700;
   margin-right: .5em;
 }
+
+
 
 .underline-indicators > * {
   cursor: pointer;
