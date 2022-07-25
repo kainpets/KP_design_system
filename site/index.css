@@ -137,6 +137,7 @@ input, button, textarea, select {
   padding-inline: 1rem;
 }
 
+/* VERY USEFUL TO SET TEXT WIDTH */
 .grid-container  * {
   max-width: 45ch;
 }
@@ -342,4 +343,32 @@ input, button, textarea, select {
 .number-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-white) / 1);
   color: hsl(var(--clr-dark));
+}
+
+/* ------------------------- */
+/* Page specific background */
+/* ------------------------ */
+
+body {
+  background-size: cover;
+  background-position: center;
+}
+
+/* home */
+
+.home {
+  background-image: url(../space-tourism-website-main/starter-code/assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .home {
+    background-position: center center;
+    background-image: url(../space-tourism-website-main/starter-code/assets/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .home {
+    background-image: url(../space-tourism-website-main/starter-code/assets/home/background-home-desktop.jpg);
+  }
 }
