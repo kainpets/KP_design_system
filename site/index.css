@@ -79,6 +79,7 @@ body {
   
   display: grid;
   grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
 }
 
 /* make images to work with */
@@ -271,6 +272,10 @@ input, button, textarea, select {
   background: hsl(var(--clr-dark) / 0.95);
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 /* GREAT FALLBACK FOR BROWSERS THAT DON'T SUPPORT A FEATURE */
 @supports (backdrop-filter: blur(1rem)) {
   .primary-navigation {
@@ -289,6 +294,21 @@ input, button, textarea, select {
     padding: min(20rem, 15vh) 2rem;
     margin: 0;
     flex-direction: column;
+    transform: translateX(100%);
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    background-image: url(../space-tourism-website-main/starter-code/assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0;
   }
   
   .primary-navigation.underline-indicators > .active {
